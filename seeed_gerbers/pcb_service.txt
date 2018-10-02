@@ -1,0 +1,28 @@
+SeeedStudio Fusion PCB service
+
+https://support.seeedstudio.com/knowledgebase/articles/1176532-how-to-generate-gerber-file
+
+Expected file extensions are:
+ .G[BT][LMO]:
+   .G   - Gerber
+    BT  - (Bottom|Top)
+    LMO - (copperLayer|solderMask|silkscreenOverlay)
+ .DRL - Drill file in Excellon format
+ .GML - Gerber Milling Layer (or .GKO board Outline)
+
+Seeed does not support Gerber 'X2" Enhanced/Advanced format.
+
+Usually 8 files for a 2-layer board.
+For 3-layer add .GL2 for copper inner layer 2, for
+4-layer also add .GL3 (the numbering is a bit off?)
+
+V-cuts to panelise boards must be horizontal or vertical,
+across the whole board, and annotated in the GKO/GML file,
+with a 4mm clearance to any circuitry on the panel..
+Is it useful to add an outline on the silkscreen layer?
+
+Seeed always needs bottom and top silk-screen overlays, e.g.:
+ * 48T02_battery_replacement.GBO
+ * 48T02_battery_replacement.GTO
+They are negative image, so if no overlays are required,
+then supply files with same edges and solid fill.
